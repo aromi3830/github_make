@@ -23,5 +23,11 @@
 5. 파일입출력
 6. 객체
 
-
+[구리고등학교 홈페이지](https://guri-h.goegn.kr/guri-h/main.do)
    
+![배우 김선우](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Q03f1tTFzzG7pkf5T2keAFRFR7JFtIalagddZQ_htaDaPuhvpzVC5Jt6fIMxWK3pc9s&usqp=CAU)
+
+`print("hello")`
+
+<pre>```python def hello(): print("Hello, GibHub!")```</pre>
+
