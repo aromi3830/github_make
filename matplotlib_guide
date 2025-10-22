@@ -1,0 +1,42 @@
+# 📊 matplotlib 요약 정리표
+
+| 구분 | 내용 |
+|------|------|
+| **라이브러리 이름** | **matplotlib** |
+| **주요 기능** | 파이썬에서 2D 및 제한적 3D 그래프를 시각화하는 표준 라이브러리 |
+| **활용 분야** | 데이터 분석, 과학/공학 시각화, 통계, 교육, 리포트용 그래프 제작 등 |
+| **대표적 하위 모듈** | `pyplot`, `artist`, `axes`, `figure` 등 |
+| **인터페이스 유형** | - MATLAB 스타일(`pyplot`)<br>- 객체 지향 스타일(`fig, ax = plt.subplots()`) |
+| **설치 명령어** | `pip install matplotlib` 또는 `conda install matplotlib` |
+| **기본 구조** | - **Figure**: 전체 그림 캔버스<br>- **Axes**: 그래프 영역<br>- **Artist**: 실제로 그려지는 요소(선, 글자 등) |
+| **대표 함수** | `plot`, `scatter`, `bar`, `hist`, `pie`, `imshow`, `contour`, `subplots` |
+| **스타일 변경** | `plt.style.use('seaborn-darkgrid')` 등으로 테마 적용 가능 |
+| **레이아웃 설정** | `plt.subplots(nrows, ncols)`로 다중 그래프 구성<br>`plt.tight_layout()`으로 자동 정렬 |
+| **파일 저장** | `plt.savefig('figure.png', dpi=300, bbox_inches='tight')` |
+| **주석 추가** | `ax.text()`, `ax.annotate()`로 텍스트 및 주석 표시 |
+| **수식 표현** | LaTeX 문법 지원: `r'$E=mc^2$'` |
+| **Jupyter / Colab 통합** | `%matplotlib inline`, `%matplotlib notebook`, `%matplotlib widget` |
+| **성능 팁** | - 데이터 많을 땐 샘플링<br>- 투명도(`alpha`) 활용<br>- 벡터 포맷(SVG, PDF) 주의 |
+| **자주 발생하는 오류** | - `plt.show()` 누락 시 출력 안 됨<br>- 한글 깨짐 → 폰트 설정 필요 |
+| **대표 그래프 종류** | - 선 그래프 (`plot`)<br>- 산점도 (`scatter`)<br>- 막대 그래프 (`bar`)<br>- 히스토그램 (`hist`)<br>- 파이 차트 (`pie`)<br>- 등고선 (`contour`)<br>- 이미지 (`imshow`)<br>- 3D (`mpl_toolkits.mplot3d`) |
+| **예시 코드 (기본)** | ```python<br>import matplotlib.pyplot as plt<br>x=[0,1,2,3,4]; y=[0,1,4,9,16]<br>plt.plot(x,y,marker='o')<br>plt.show()<br>``` |
+| **예시 코드 (객체지향)** | ```python<br>fig, ax = plt.subplots()<br>ax.plot(x, y, color='tab:blue')<br>ax.set_title('Example')<br>plt.show()<br>``` |
+| **참고 자료** | - [공식 문서](https://matplotlib.org/stable/contents.html)<br>- [예제 갤러리](https://matplotlib.org/stable/gallery/index.html) |
+
+---
+
+## 📘 추가 예시: 여러 그래프 한 화면에
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2*np.pi, 200)
+fig, axs = plt.subplots(2,2, figsize=(10,7))
+
+axs[0,0].plot(x, np.sin(x)); axs[0,0].set_title('sin')
+axs[0,1].plot(x, np.cos(x), 'r--'); axs[0,1].set_title('cos')
+axs[1,0].hist(np.random.randn(1000), bins=30); axs[1,0].set_title('hist')
+axs[1,1].scatter(np.random.rand(100), np.random.rand(100)); axs[1,1].set_title('scatter')
+
+plt.tight_layout()
+plt.show()
